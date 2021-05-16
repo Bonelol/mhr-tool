@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+#root {
+  width: 100%;
 }
 
 code {

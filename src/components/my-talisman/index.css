@@ -1,0 +1,14 @@
+.my-talisman > div + div, .my-talisman .flex-row > div + div {
+  margin-left: 24px;
+}
+
+.my-talisman-content {
+  position: relative;
+  height: 100%;
+}
+
+.my-talisman-skills {
+  position: relative;
+  height: 80%;
+  overflow-y: auto;
+}

@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+section {
+  height: 100vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
