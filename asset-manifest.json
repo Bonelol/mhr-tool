@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mhr-tool/static/css/main.a6cffcd5.chunk.css",
+    "main.js": "/mhr-tool/static/js/main.6c885091.chunk.js",
+    "main.js.map": "/mhr-tool/static/js/main.6c885091.chunk.js.map",
+    "runtime-main.js": "/mhr-tool/static/js/runtime-main.1cd3c9fa.js",
+    "runtime-main.js.map": "/mhr-tool/static/js/runtime-main.1cd3c9fa.js.map",
+    "static/css/2.54787924.chunk.css": "/mhr-tool/static/css/2.54787924.chunk.css",
+    "static/js/2.b8580232.chunk.js": "/mhr-tool/static/js/2.b8580232.chunk.js",
+    "static/js/2.b8580232.chunk.js.map": "/mhr-tool/static/js/2.b8580232.chunk.js.map",
+    "static/js/3.b52873e5.chunk.js": "/mhr-tool/static/js/3.b52873e5.chunk.js",
+    "static/js/3.b52873e5.chunk.js.map": "/mhr-tool/static/js/3.b52873e5.chunk.js.map",
+    "index.html": "/mhr-tool/index.html",
+    "static/css/2.54787924.chunk.css.map": "/mhr-tool/static/css/2.54787924.chunk.css.map",
+    "static/css/main.a6cffcd5.chunk.css.map": "/mhr-tool/static/css/main.a6cffcd5.chunk.css.map",
+    "static/js/2.b8580232.chunk.js.LICENSE.txt": "/mhr-tool/static/js/2.b8580232.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1cd3c9fa.js",
+    "static/css/2.54787924.chunk.css",
+    "static/js/2.b8580232.chunk.js",
+    "static/css/main.a6cffcd5.chunk.css",
+    "static/js/main.6c885091.chunk.js"
+  ]
+}
