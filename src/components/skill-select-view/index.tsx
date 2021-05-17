@@ -27,12 +27,8 @@ export const SkillSelectView = (props: SkillSelectViewProps) => {
       value: o,
     }));
   const [drawerVisible, setDrawerVisible] = useState(false);
-  const skills = sortBy(initState, (s) =>
-    selected && selected.get(s.name) ? 0 : 1
-  ).filter(
-    (s) =>
-      (selected && selected.get(s.name)) ||
-      selectedRareOptions.includes(s.rare || 0)
+  const skills = sortBy(initState, (s) => (selected && selected.get(s.name) ? 0 : 1)).filter(
+    (s) => (selected && selected.get(s.name)) || selectedRareOptions.includes(s.rare || 0)
   );
 
   const handleRateChange = (skill: Skill) => (value: number) => {
@@ -60,18 +56,14 @@ export const SkillSelectView = (props: SkillSelectViewProps) => {
 
   useEffect(() => {
     if (skillsRef.current && snapshot.current >= 0) {
-      skillsRef.current.scrollTop =
-        skillsRef.current.scrollHeight - snapshot.current;
+      skillsRef.current.scrollTop = skillsRef.current.scrollHeight - snapshot.current;
     }
   }, [selected]);
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', height: '100%' }}>
       <div style={{ textAlign: 'right' }}>
-        <Button
-          icon={<SettingOutlined />}
-          onClick={() => setDrawerVisible(true)}
-        ></Button>
+        <Button icon={<SettingOutlined />} onClick={() => setDrawerVisible(true)}></Button>
       </div>
       <div ref={skillsRef} className="skill-list-wrapper">
         <table className="skill-list">

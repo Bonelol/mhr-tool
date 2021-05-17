@@ -13,12 +13,10 @@ export const Layout = () => {
           <Menu.Item key="3">没什么用 3</Menu.Item>
         </Menu>
       </Header>
-      <Content style={{ padding: '0 50px', backgroundColor: '#fff' }}>       
+      <Content style={{ padding: '0 50px', backgroundColor: '#fff' }}>
         <Calc />
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
-       Created by Bonelol
-      </Footer>
+      <Footer style={{ textAlign: 'center' }}>Created by Bonelol</Footer>
     </AntdLayout>
   );
 };

@@ -35,8 +35,7 @@ const useLocalTalisman = () => {
 
 const useLocalSkills = () => {
   return useLocalStorageState<Map<string, number>>('my-skills', new Map(), {
-    serialize: (value: Map<string, number>) =>
-      JSON.stringify(Array.from(value.entries())),
+    serialize: (value: Map<string, number>) => JSON.stringify(Array.from(value.entries())),
     deserialize: (value: string) => new Map(JSON.parse(value) || []),
   });
 };
@@ -52,9 +51,9 @@ export const Calc = () => {
     setSelected(new Map(selected).set(s.name, level));
   };
 
-  const onTalismanChanged =  (t: Talisman) => {
+  const onTalismanChanged = (t: Talisman) => {
     setTalisman(t);
-  }
+  };
 
   const calc = () => {
     const builds = findBuilds(selected, talisman, armors, decorations);
@@ -69,10 +68,7 @@ export const Calc = () => {
       <div className="calc-main-view">
         <div className=" flex-row">
           <div style={{ width: '80%' }}>
-            <MyTalisman
-              talisman={talisman}
-              talismanChanged={onTalismanChanged}
-            />
+            <MyTalisman talisman={talisman} talismanChanged={onTalismanChanged} />
           </div>
           <div>
             <Button type="primary" onClick={calc}>

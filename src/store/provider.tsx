@@ -6,9 +6,6 @@ import { Props } from './types';
 const providers = [ArmorProvider, SkillProvider, DecorationProvider];
 
 const Provider = (props: Props): any =>
-  providers.reduceRight(
-    (children, Parent) => <Parent>{children}</Parent>,
-    props.children
-  );
+  providers.reduceRight((children, Parent) => <Parent>{children}</Parent>, props.children);
 
 export default Provider;

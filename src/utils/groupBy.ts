@@ -1,7 +1,4 @@
-export function groupBy<T, TR>(
-  array: T[],
-  getKey: (item: T) => TR
-): { key: TR; values: T[] }[] {
+export function groupBy<T, TR>(array: T[], getKey: (item: T) => TR): { key: TR; values: T[] }[] {
   if (!array || array.length === 0) {
     return [];
   }

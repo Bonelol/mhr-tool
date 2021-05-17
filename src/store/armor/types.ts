@@ -1,4 +1,4 @@
-import { Armor } from "../../data";
+import { Armor } from '../../data';
 
 export type Reducer = (state: State, action: Action) => State;
 

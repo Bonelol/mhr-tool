@@ -1,7 +1,4 @@
-export function sortBy<T>(
-  array: T[],
-  getKey: (item: T) => number | string
-): T[] {
+export function sortBy<T>(array: T[], getKey: (item: T) => number | string): T[] {
   return array.slice().sort((a, b) => {
     const keyA = getKey(a);
     const keyB = getKey(b);
@@ -14,10 +11,7 @@ export function sortBy<T>(
   });
 }
 
-export function sortDescBy<T>(
-  array: T[],
-  getKey: (item: T) => number | string
-): T[] {
+export function sortDescBy<T>(array: T[], getKey: (item: T) => number | string): T[] {
   return array.slice().sort((a, b) => {
     const keyA = getKey(a);
     const keyB = getKey(b);

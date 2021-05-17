@@ -1,8 +1,4 @@
-export function sumBy<T>(
-  array: T[],
-  func: (item: T) => number,
-  initial?: number
-): number {
+export function sumBy<T>(array: T[], func: (item: T) => number, initial?: number): number {
   if (!array) {
     return 0;
   }
