@@ -11,7 +11,6 @@ export interface MyTalismanProps {
 
 export const MyTalisman = (props: MyTalismanProps) => {
   const { talisman, talismanChanged } = props;
-
   const [visible, setVisible] = useState(false);
   const [skills, setSkills] = useState(
     talisman?.skills || new Map<string, number>()
@@ -46,8 +45,9 @@ export const MyTalisman = (props: MyTalismanProps) => {
   useEffect(() => {
     const s1 = new Map(Array.from(slots.entries()).filter((s) => s[1] > 0));
     const s2 = new Map(Array.from(skills.entries()).filter((s) => s[1] > 0));
-    talismanChanged && talismanChanged({ slots: s1, skills: s2 });
-  }, [slots, skills, talismanChanged]);
+
+    if (talismanChanged) talismanChanged({ slots: s1, skills: s2 });
+  }, [slots, skills]);
 
   return (
     <div className="my-talisman flex-row">

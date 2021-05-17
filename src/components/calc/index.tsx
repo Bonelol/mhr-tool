@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Button, List } from 'antd';
 import { Build, Decoration, Skill, Talisman } from '../../data';
 import { SkillSelectView } from '../skill-select-view';
@@ -48,20 +48,18 @@ export const Calc = () => {
   const armors = useArmorState();
   const decorations = useDecorationState();
   const skillsRef = useRef<HTMLDivElement>(null);
-  const [snapshot, setSnapshot] = useState(-1);
+  const snapshot = useRef(-1);
 
   const onSelected = (s: Skill, level: number) => {
-    setSnapshot(
-      skillsRef.current
-        ? skillsRef.current.scrollHeight - skillsRef.current.scrollTop
-        : 0
-    );
+    snapshot.current = skillsRef.current
+      ? skillsRef.current.scrollHeight - skillsRef.current.scrollTop
+      : 0;
     setSelected(new Map(selected).set(s.name, level));
   };
 
-  const onTalismanChanged = (t: Talisman) => {
+  const onTalismanChanged = useCallback(() => ((t: Talisman) => {
     setTalisman(t);
-  };
+  }), []);
 
   const calc = () => {
     const builds = findBuilds(selected, talisman, armors, decorations);
@@ -69,10 +67,11 @@ export const Calc = () => {
   };
 
   useEffect(() => {
-    if (skillsRef.current && snapshot >= 0) {
-      skillsRef.current.scrollTop = skillsRef.current.scrollHeight - snapshot;
+    if (skillsRef.current && snapshot.current >= 0) {
+      skillsRef.current.scrollTop =
+        skillsRef.current.scrollHeight - snapshot.current;
     }
-  }, [selected, snapshot]);
+  }, [selected]);
 
   return (
     <div className="calc">

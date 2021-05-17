@@ -25,6 +25,6 @@
 .build-list {
   padding: 16px;
   margin-top: 12px;
-  height: calc(100% - 60px);
+  height: calc(100% - 320px);
   overflow-y: auto;
 }
