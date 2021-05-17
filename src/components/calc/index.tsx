@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Button, List } from 'antd';
 import { Build, Decoration, Skill, skills, Talisman } from '../../data';
 import { SkillSelectView } from '../skill-select-view';
 import { useState as useArmorState } from '../../store/armor';
@@ -6,10 +7,9 @@ import { useState as useDecorationState } from '../../store/decoration';
 import { sortBy, sortDescBy } from '../../utils/sortBy';
 import { flatMap } from '../../utils/flatMap';
 import { MyTalisman } from '../my-talisman';
-import { Button, List } from 'antd';
-import './index.css';
 import { State as Armors } from '../../store/armor/types';
 import { BuildView } from '../build-view';
+import './index.css';
 
 export const Calc = () => {
   const [selected, setSelected] = useState(new Map<string, number>());

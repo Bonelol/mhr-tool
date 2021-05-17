@@ -1,4 +1,5 @@
-.my-talisman > div + div, .my-talisman .flex-row > div + div {
+.my-talisman > div + div,
+.my-talisman .flex-row > div + div {
   margin-left: 24px;
 }
 
@@ -14,6 +15,8 @@
 }
 
 .my-talisman-card {
+  text-align: left;
+  min-width: 480px;
   border-radius: 8px;
 }
 
@@ -26,5 +29,9 @@
 }
 
 .my-talisman-card + .my-talisman-card {
+  margin-top: 12px;
+}
+
+.my-talisman-card > .ant-card-body > div + div {
   margin-top: 12px;
 }

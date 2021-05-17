@@ -68,16 +68,20 @@ export const MyTalisman = (props: MyTalismanProps) => {
   return (
     <div className="my-talisman flex-row">
       <div>
-        <Card className="my-talisman-card">
+        <Card
+          className="my-talisman-card"
+          title="护石"
+          style={{ background: '#e3f2fd' }}
+        >
           <div className="flex-row">
-            <div>Slots</div>
+            <div>插槽</div>
             <div>{slotListView}</div>
           </div>
-        </Card>
-        <Card className="my-talisman-card">
           <div className="flex-row">
-            <div>Skills</div>
+            <div>技能</div>
             <div>{talismanSkillsList}</div>
+          </div>
+          <div style={{textAlign: 'right'}}>
             <a onClick={showModal}>编辑</a>
           </div>
         </Card>
@@ -100,9 +104,7 @@ export const MyTalisman = (props: MyTalismanProps) => {
                     <Rate
                       defaultValue={slots.get(3)}
                       count={3}
-                      character={({ index }: { index: number }) => (
-                        <RectIcon />
-                      )}
+                      character={({ index }: { index: number }) => index + 1}
                       onChange={(n) => setSlots(slots.set(3, n))}
                     />
                   </td>
