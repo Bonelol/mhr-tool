@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, List } from 'antd';
 import { Build, Decoration, Skill, Talisman } from '../../data';
 import { SkillSelectView } from '../skill-select-view';
@@ -9,8 +9,8 @@ import { flatMap } from '../../utils/flatMap';
 import { MyTalisman } from '../my-talisman';
 import { State as Armors } from '../../store/armor/types';
 import { BuildView } from '../build-view';
-import './index.css';
 import { useLocalStorageState } from '../../utils/useLocalStorageState';
+import './index.css';
 
 const useLocalTalisman = () => {
   return useLocalStorageState<Talisman>(
@@ -57,9 +57,9 @@ export const Calc = () => {
     setSelected(new Map(selected).set(s.name, level));
   };
 
-  const onTalismanChanged = useCallback(() => ((t: Talisman) => {
+  const onTalismanChanged =  (t: Talisman) => {
     setTalisman(t);
-  }), []);
+  }
 
   const calc = () => {
     const builds = findBuilds(selected, talisman, armors, decorations);

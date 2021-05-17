@@ -30,7 +30,6 @@ export const BuildView = (props: BuildViewProps) => {
           <div>Requirements: {build.requirementsScore}</div>
         </div>
         <div>
-          Skills
           <div>{skillListView}</div>
         </div>
       </div>

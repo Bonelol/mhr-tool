@@ -1,4 +1,4 @@
-import { Drawer, Rate, Tag, Card, Button } from 'antd';
+import { Rate, Tag, Card, Button, Modal } from 'antd';
 import { useEffect, useState } from 'react';
 import { Skill, Talisman } from '../../data/types';
 import { SkillSelectView } from '../skill-select-view';
@@ -55,7 +55,13 @@ export const MyTalisman = (props: MyTalismanProps) => {
         <Card
           className="my-talisman-card"
           title="护石"
-          style={{ background: '#e3f2fd' }}
+          size="small"
+          extra={
+            <Button type="link" onClick={showModal}>
+              编辑
+            </Button>
+          }
+          style={{ background: '#f1f8e9' }}
         >
           <div className="flex-row">
             <div>插槽</div>
@@ -65,20 +71,13 @@ export const MyTalisman = (props: MyTalismanProps) => {
             <div>技能</div>
             <div>{talismanSkillsList}</div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <Button type="link" onClick={showModal}>
-              编辑
-            </Button>
-          </div>
         </Card>
       </div>
-      <Drawer
-        title="Basic Drawer"
-        placement="right"
-        width={512}
-        closable={false}
-        onClose={handleOk}
+      <Modal
+        title="编辑护石"
         visible={visible}
+        footer={null}
+        onCancel={handleOk}
       >
         <div className="my-talisman-content">
           <div className="my-talisman-slots">
@@ -124,7 +123,7 @@ export const MyTalisman = (props: MyTalismanProps) => {
             <SkillSelectView selected={skills} onSelected={onSelected} />
           </div>
         </div>
-      </Drawer>
+      </Modal>
     </div>
   );
 };

@@ -23,8 +23,8 @@
 }
 
 .build-list {
-  padding: 16px;
+  padding-right: 16px;
   margin-top: 12px;
-  height: calc(100% - 320px);
+  height: calc(100% - 200px);
   overflow-y: auto;
 }

@@ -1,3 +1,8 @@
+.build-view {
+  justify-content: space-evenly;
+}
+
 .build-view > div {
-  width: 50%;
+  text-align: right;
+  min-width: 140px;
 }
