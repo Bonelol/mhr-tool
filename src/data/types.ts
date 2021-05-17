@@ -12,6 +12,7 @@ export interface Armor {
 export interface Skill {
   name: string;
   max: number;
+  rare?: number;
   [others: string]: any;
 }
 

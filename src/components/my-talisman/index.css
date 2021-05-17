@@ -12,3 +12,19 @@
   height: 80%;
   overflow-y: auto;
 }
+
+.my-talisman-card {
+  border-radius: 8px;
+}
+
+.my-talisman-card > .ant-card-body {
+  padding: 12px;
+}
+
+.my-talisman-card > .ant-card-head {
+  padding: 0 12px;
+}
+
+.my-talisman-card + .my-talisman-card {
+  margin-top: 12px;
+}

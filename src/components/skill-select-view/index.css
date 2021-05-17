@@ -2,3 +2,9 @@
   padding: 8px;
   text-align: left;
 }
+
+.skill-list-wrapper {
+  height: 80%;
+  margin-top: 24px;
+  overflow-y: auto;
+}

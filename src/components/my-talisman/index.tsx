@@ -1,8 +1,24 @@
-import { Button, Drawer, Rate, Tag } from 'antd';
+import { Button, Drawer, Rate, Tag, Card } from 'antd';
+import Icon, { BorderOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
 import { Skill, Talisman } from '../../data/types';
 import { SkillSelectView } from '../skill-select-view';
 import './index.css';
+
+const RectSvg = () => (
+  <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
+    <path
+      d="
+        M 100, 100
+        m -75, 0
+        a 75,75 0 1,0 150,0
+        a 75,75 0 1,0 -150,0
+        "
+    />
+  </svg>
+);
+
+const RectIcon = (props: any) => <Icon component={RectSvg} {...props} />;
 
 export interface MyTalismanProps {
   talisman?: Talisman;
@@ -52,19 +68,19 @@ export const MyTalisman = (props: MyTalismanProps) => {
   return (
     <div className="my-talisman flex-row">
       <div>
-        <Button type="primary" onClick={showModal}>
-          编辑护石
-        </Button>
-      </div>
-      <div>
-        <div className="flex-row">
-          <div>Slots</div>
-          <div>{slotListView}</div>
-        </div>
-        <div className="flex-row">
-          <div>Skills</div>
-          <div>{talismanSkillsList}</div>
-        </div>
+        <Card className="my-talisman-card">
+          <div className="flex-row">
+            <div>Slots</div>
+            <div>{slotListView}</div>
+          </div>
+        </Card>
+        <Card className="my-talisman-card">
+          <div className="flex-row">
+            <div>Skills</div>
+            <div>{talismanSkillsList}</div>
+            <a onClick={showModal}>编辑</a>
+          </div>
+        </Card>
       </div>
       <Drawer
         title="Basic Drawer"
@@ -84,7 +100,9 @@ export const MyTalisman = (props: MyTalismanProps) => {
                     <Rate
                       defaultValue={slots.get(3)}
                       count={3}
-                      character={({ index }: { index: number }) => index + 1}
+                      character={({ index }: { index: number }) => (
+                        <RectIcon />
+                      )}
                       onChange={(n) => setSlots(slots.set(3, n))}
                     />
                   </td>
