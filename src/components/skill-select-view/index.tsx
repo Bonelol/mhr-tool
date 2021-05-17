@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Button, Checkbox, Drawer, Rate } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import { Skill } from '../../data';

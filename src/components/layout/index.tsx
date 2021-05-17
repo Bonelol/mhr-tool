@@ -1,6 +1,5 @@
-import { Layout as AntdLayout, Menu, Breadcrumb } from 'antd';
+import { Layout as AntdLayout, Menu } from 'antd';
 import { Content, Footer, Header } from 'antd/lib/layout/layout';
-import Sider from 'antd/lib/layout/Sider';
 import { Calc } from '../calc';
 
 export const Layout = () => {

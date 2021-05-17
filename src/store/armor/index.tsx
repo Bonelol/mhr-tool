@@ -1,5 +1,4 @@
 import React from 'react';
-import { Armor } from '../../data';
 import { Props } from '../types';
 import { Action, State } from './types';
 import { armors } from '../../data/armor';

@@ -148,7 +148,7 @@ export class Build {
         for (let k = i; k <= maxLevel; k++) {
           const slot = this.availableSlots.get(k) || 0;
 
-          if (slot == 0) {
+          if (slot === 0) {
             continue;
           }
 
@@ -201,7 +201,7 @@ export class Build {
         for (let k = i; k <= maxLevel; k++) {
           const slot = availableSlots.get(k) || 0;
 
-          if (slot == 0) {
+          if (slot === 0) {
             continue;
           }
 

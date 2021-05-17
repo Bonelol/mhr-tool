@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, List } from 'antd';
-import { Build, Decoration, Skill, skills, Talisman } from '../../data';
+import { Build, Decoration, Skill, Talisman } from '../../data';
 import { SkillSelectView } from '../skill-select-view';
 import { useState as useArmorState } from '../../store/armor';
 import { useState as useDecorationState } from '../../store/decoration';
@@ -72,7 +72,7 @@ export const Calc = () => {
     if (skillsRef.current && snapshot >= 0) {
       skillsRef.current.scrollTop = skillsRef.current.scrollHeight - snapshot;
     }
-  }, [selected]);
+  }, [selected, snapshot]);
 
   return (
     <div className="calc">

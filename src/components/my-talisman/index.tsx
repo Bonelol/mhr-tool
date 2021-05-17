@@ -1,24 +1,8 @@
-import { Button, Drawer, Rate, Tag, Card } from 'antd';
-import Icon, { BorderOutlined } from '@ant-design/icons';
+import { Drawer, Rate, Tag, Card, Button } from 'antd';
 import { useEffect, useState } from 'react';
 import { Skill, Talisman } from '../../data/types';
 import { SkillSelectView } from '../skill-select-view';
 import './index.css';
-
-const RectSvg = () => (
-  <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
-    <path
-      d="
-        M 100, 100
-        m -75, 0
-        a 75,75 0 1,0 150,0
-        a 75,75 0 1,0 -150,0
-        "
-    />
-  </svg>
-);
-
-const RectIcon = (props: any) => <Icon component={RectSvg} {...props} />;
 
 export interface MyTalismanProps {
   talisman?: Talisman;
@@ -63,7 +47,7 @@ export const MyTalisman = (props: MyTalismanProps) => {
     const s1 = new Map(Array.from(slots.entries()).filter((s) => s[1] > 0));
     const s2 = new Map(Array.from(skills.entries()).filter((s) => s[1] > 0));
     talismanChanged && talismanChanged({ slots: s1, skills: s2 });
-  }, [slots, skills]);
+  }, [slots, skills, talismanChanged]);
 
   return (
     <div className="my-talisman flex-row">
@@ -81,8 +65,10 @@ export const MyTalisman = (props: MyTalismanProps) => {
             <div>技能</div>
             <div>{talismanSkillsList}</div>
           </div>
-          <div style={{textAlign: 'right'}}>
-            <a onClick={showModal}>编辑</a>
+          <div style={{ textAlign: 'right' }}>
+            <Button type="link" onClick={showModal}>
+              编辑
+            </Button>
           </div>
         </Card>
       </div>
