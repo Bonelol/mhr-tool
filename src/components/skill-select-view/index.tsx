@@ -51,18 +51,20 @@ export const SkillSelectView = (props: SkillSelectViewProps) => {
   ));
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden' }}>
-      <Button
-        icon={<SettingOutlined />}
-        onClick={() => setDrawerVisible(true)}
-      ></Button>
+    <div style={{ position: 'relative', overflow: 'hidden', height: '100%' }}>
+      <div style={{ textAlign: 'right' }}>
+        <Button
+          icon={<SettingOutlined />}
+          onClick={() => setDrawerVisible(true)}
+        ></Button>
+      </div>
       <div className="skill-list-wrapper">
         <table className="skill-list">
           <tbody>{skillList}</tbody>
         </table>
       </div>
       <Drawer
-        title="Basic Drawer"
+        title="技能稀有度"
         placement="top"
         closable={false}
         onClose={() => setDrawerVisible(false)}
