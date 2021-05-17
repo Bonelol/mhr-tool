@@ -47,13 +47,8 @@ export const Calc = () => {
   const [builds, setBuilds] = useState<Build[]>([]);
   const armors = useArmorState();
   const decorations = useDecorationState();
-  const skillsRef = useRef<HTMLDivElement>(null);
-  const snapshot = useRef(-1);
 
   const onSelected = (s: Skill, level: number) => {
-    snapshot.current = skillsRef.current
-      ? skillsRef.current.scrollHeight - skillsRef.current.scrollTop
-      : 0;
     setSelected(new Map(selected).set(s.name, level));
   };
 
@@ -66,16 +61,9 @@ export const Calc = () => {
     setBuilds(builds);
   };
 
-  useEffect(() => {
-    if (skillsRef.current && snapshot.current >= 0) {
-      skillsRef.current.scrollTop =
-        skillsRef.current.scrollHeight - snapshot.current;
-    }
-  }, [selected]);
-
   return (
     <div className="calc">
-      <div ref={skillsRef}>
+      <div>
         <SkillSelectView selected={selected} onSelected={onSelected} />
       </div>
       <div className="calc-main-view">
