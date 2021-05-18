@@ -1,0 +1,8 @@
+.github-star {
+  top: 0;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 64px;
+}
