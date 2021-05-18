@@ -12,12 +12,8 @@ export interface MyTalismanProps {
 export const MyTalisman = (props: MyTalismanProps) => {
   const { talisman, talismanChanged } = props;
   const [visible, setVisible] = useState(false);
-  const [skills, setSkills] = useState(
-    talisman?.skills || new Map<string, number>()
-  );
-  const [slots, setSlots] = useState(
-    talisman?.slots || new Map<number, number>()
-  );
+  const [skills, setSkills] = useState(talisman?.skills || new Map<string, number>());
+  const [slots, setSlots] = useState(talisman?.slots || new Map<number, number>());
   const onSelected = (s: Skill, level: number) => {
     setSkills(new Map(skills.set(s.name, level)));
   };
@@ -73,12 +69,7 @@ export const MyTalisman = (props: MyTalismanProps) => {
           </div>
         </Card>
       </div>
-      <Modal
-        title="编辑护石"
-        visible={visible}
-        footer={null}
-        onCancel={handleOk}
-      >
+      <Modal title="编辑护石" visible={visible} footer={null} onCancel={handleOk}>
         <div className="my-talisman-content">
           <div className="my-talisman-slots">
             <table>

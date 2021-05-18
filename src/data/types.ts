@@ -45,7 +45,10 @@ export class Build {
   }
 
   get availableSlotsScore() {
-    return sumBy(Array.from(this.availableSlots.entries()), ([slot, num]) => (slot === 3 ? 9 : slot === 2 ? 4 : 1) * num);
+    return sumBy(
+      Array.from(this.availableSlots.entries()),
+      ([slot, num]) => (slot === 3 ? 9 : slot === 2 ? 4 : 1) * num
+    );
   }
 
   constructor(requirements: Map<string, number>) {
@@ -102,9 +105,7 @@ export class Build {
     });
   }
 
-  updateSkills(
-    skills: { name: string; level: number; [others: string]: any }[]
-  ) {
+  updateSkills(skills: { name: string; level: number; [others: string]: any }[]) {
     skills.forEach((s) => {
       this.skills.set(s.name, (this.skills.get(s.name) || 0) + s.level);
 

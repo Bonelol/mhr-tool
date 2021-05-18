@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, Checkbox, Drawer, Rate } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import { Skill } from '../../data';
@@ -15,6 +15,8 @@ export interface SkillSelectViewProps {
 
 export const SkillSelectView = (props: SkillSelectViewProps) => {
   const { selected, onSelected } = props;
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const snapshot = useRef(-1);
   const initState = useSkillState();
   const [selectedRareOptions, onSelectedRareOptions] = useState(defaultOptions);
   const rareOptions = Array.from(new Set(initState.map((s) => s.rare || 0)))
@@ -25,18 +27,20 @@ export const SkillSelectView = (props: SkillSelectViewProps) => {
       value: o,
     }));
   const [drawerVisible, setDrawerVisible] = useState(false);
-  const skills = sortBy(initState, (s) =>
-    selected && selected.get(s.name) ? 0 : 1
-  ).filter(
-    (s) =>
-      (selected && selected.get(s.name)) ||
-      selectedRareOptions.includes(s.rare || 0)
+  const skills = sortBy(initState, (s) => (selected && selected.get(s.name) ? 0 : 1)).filter(
+    (s) => (selected && selected.get(s.name)) || selectedRareOptions.includes(s.rare || 0)
   );
+
   const handleRateChange = (skill: Skill) => (value: number) => {
+    snapshot.current = skillsRef.current
+      ? skillsRef.current.scrollHeight - skillsRef.current.scrollTop
+      : 0;
+
     if (onSelected) {
       onSelected(skill, value);
     }
   };
+
   const skillList = skills.map((skill) => (
     <tr key={skill.name} className="skill-list-item">
       <td className="skill-list-item-title">{skill.name}</td>
@@ -50,15 +54,18 @@ export const SkillSelectView = (props: SkillSelectViewProps) => {
     </tr>
   ));
 
+  useEffect(() => {
+    if (skillsRef.current && snapshot.current >= 0) {
+      skillsRef.current.scrollTop = skillsRef.current.scrollHeight - snapshot.current;
+    }
+  }, [selected]);
+
   return (
     <div style={{ position: 'relative', overflow: 'hidden', height: '100%' }}>
       <div style={{ textAlign: 'right' }}>
-        <Button
-          icon={<SettingOutlined />}
-          onClick={() => setDrawerVisible(true)}
-        ></Button>
+        <Button icon={<SettingOutlined />} onClick={() => setDrawerVisible(true)}></Button>
       </div>
-      <div className="skill-list-wrapper">
+      <div ref={skillsRef} className="skill-list-wrapper">
         <table className="skill-list">
           <tbody>{skillList}</tbody>
         </table>

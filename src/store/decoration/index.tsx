@@ -14,9 +14,9 @@ const reducer = (state: State, action: Action) => {
       return [...(action.payload as Decoration[])];
     case 'DECORATION_UPDATE': {
       const { payload } = action;
-      const index = state.findIndex(p => p.name === payload.name);
-      
-      if (index < 0){
+      const index = state.findIndex((p) => p.name === payload.name);
+
+      if (index < 0) {
         return state;
       }
 
